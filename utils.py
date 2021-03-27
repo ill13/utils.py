@@ -7,6 +7,10 @@ from datetime import date, datetime
 import codecs
 import app_theme as th
 
+# https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
+def prettier_size(n,pow=0,b=1024,u='B',pre=['']+[p+'i'for p in'KMGTPEZY']):
+    r,f=min(int(log(max(n*b**pow,1),b)),len(pre)-1),'{:,.%if} %s%s'
+    return (f%(abs(r%(-r-1)),pre[r],u)).format(n*b**pow/b**float(r))
 
 def pretty_size(n,pow=0,b=1024,u='B',pre=['']+[p+'i'for p in'KMGTPEZY']):
     # b= bytes base 
